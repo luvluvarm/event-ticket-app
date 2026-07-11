@@ -1467,7 +1467,7 @@ The test directory (`src/test/java`) mirrors the main source structure and inclu
 - Key dependencies include Spring Web, JPA, Security, and PostgreSQL
 - H2 database configured for testing environment
 
-### Database Connection
+### Running Postgresql
 
 In this lesson, we'll set up PostgreSQL using Docker and configure our Spring Boot application to connect to it.
 
@@ -1508,6 +1508,7 @@ docker-compose up
 Our application needs to know how to connect to PostgreSQL. We'll configure this in `application.properties`:
 
 ```properties
+# Database Connection
 spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
 spring.datasource.username=postgres
 spring.datasource.password=changemeinprod!
@@ -2633,7 +2634,7 @@ While we could add the `@EntityListeners` annotation to each entity class indivi
 
 ## Create Event
 
-### Install dependencies
+### Ui Overview
 
 In this lesson, we'll explore the user interface for creating events and identify any new requirements it introduces for our backend implementation.
 
@@ -2644,6 +2645,7 @@ In this lesson, we'll explore the user interface for creating events and identif
 The frontend application is built using React and Vite, with authentication handled through Keycloak. To run it locally:
 
 ```bash
+# Install dependencies
 npm install --force  # Force flag needed due to shadcn dependency conflicts
 
 # Start development server
@@ -4286,7 +4288,7 @@ public ResponseEntity<Void> deleteEvent(
 
 - Implemented the delete event endpoint
 
-### Run these commands in your terminal
+### Ui Testing
 
 In this lesson, we'll test the delete event functionality through the user interface.
 
@@ -4295,6 +4297,7 @@ In this lesson, we'll test the delete event functionality through the user inter
 Before testing the delete functionality in the browser, we should ensure our application compiles correctly:
 
 ```bash
+# Run these commands in your terminal
 ./mvnw clean compile
 ```
 
@@ -4828,7 +4831,7 @@ This configuration uses a wildcard (`**`) to match any path after `/api/v1/publi
 - Implemented the get published event endpoint
 - Updated `SecurityConfig` to make calls to make the get published event endpoint public
 
-### Clean and compile the application
+### Ui Testing
 
 In this lesson, we'll test the get published event functionality using the user interface, ensuring our endpoint works correctly and delivers the expected event information to users.
 
@@ -4837,6 +4840,7 @@ In this lesson, we'll test the get published event functionality using the user 
 First, we need to compile and start our backend application:
 
 ```bash
+# Clean and compile the application
 mvn clean compile
 
 # Start the Spring Boot application
