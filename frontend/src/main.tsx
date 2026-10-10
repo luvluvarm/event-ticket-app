@@ -102,7 +102,11 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-]);
+], {
+  basename: window.location.pathname.startsWith("/event-ticket-app")
+    ? "/event-ticket-app"
+    : "/",
+});
 
 const oidcConfig = {
   authority:
@@ -112,7 +116,11 @@ const oidcConfig = {
     import.meta.env.VITE_OIDC_CLIENT_ID || "event-ticket-platform-app",
   redirect_uri:
     import.meta.env.VITE_OIDC_REDIRECT_URI ||
-    `${window.location.origin}/callback`,
+    `${window.location.origin}${
+      window.location.pathname.startsWith("/event-ticket-app")
+        ? "/event-ticket-app"
+        : ""
+    }/callback`,
 };
 
 createRoot(document.getElementById("root")!).render(
